@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+
 class square {
   constructor(live, x, y) {
     this.live = live;
@@ -72,9 +73,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
+    marginTop: 8,
     backgroundColor: 'green',
-    paddingVertical: 20,
-    marginVertical: 10,
+    paddingVertical: 12,
+    marginVertical: 5,
+    padding: 10,
+    textAlign: 'center',
+    width: 200,
+    borderRadius: 15,
+    marginLeft: 80,
+    color: 'white'
   },
 });
 
