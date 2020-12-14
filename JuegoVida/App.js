@@ -1,5 +1,12 @@
 import React from 'react';
-import {SafeAreaView, View, FlatList, StyleSheet} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
 class square {
   constructor(live, x, y) {
@@ -37,13 +44,24 @@ const App = () => {
         numColumns={numColumn}
         key={numColumn}
       />
+
+      <TouchableOpacity>
+        <Text style={styles.button}>Next</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <Text style={styles.button}>Auto</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <Text style={styles.button}>Reset</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginTop: 5,
   },
   item: {
@@ -53,8 +71,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 1,
     flex: 1,
   },
+  button: {
+    backgroundColor: 'green',
+    paddingVertical: 20,
+    marginVertical: 10,
+  },
 });
-
-
 
 export default App;
