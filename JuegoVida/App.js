@@ -47,11 +47,14 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   item: {
-    padding: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 1,
     marginVertical: 1,
     marginHorizontal: 1,
     flex: 1,
   },
 });
+
+
 
 export default App;
