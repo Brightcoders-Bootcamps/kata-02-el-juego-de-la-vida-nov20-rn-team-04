@@ -88,7 +88,6 @@ El diseño propuesto tiene:
 7. Juégalo en modo automático en el botón de Auto
 8. Detén el juego en el botón de Stop
 9. Presiona Reset para reestablecer el juego}
-(setup/README.md)
 
 ## Recursos
 [Para apoyo de tus actividades utiliza esta lista de recursos recomendados](https://github.com/bright-coders/commons/tree/master/topics/resources-react-native)
