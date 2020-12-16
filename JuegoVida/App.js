@@ -1,5 +1,5 @@
 //Imports
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
@@ -243,6 +243,7 @@ const App = () => {
   }, [auto]);
 
   function stop() {
+    //stop(grid.map(setAuto))
     clearInterval(global.intervalId);
   }
 
@@ -333,7 +334,7 @@ const App = () => {
       </TouchableOpacity>
 
       <TouchableOpacity>
-        <Text style={styles.button} onPress={auto}>
+        <Text style={styles.button} onPress={(e) => setAuto(1)}>
           Auto
         </Text>
       </TouchableOpacity>
