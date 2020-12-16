@@ -269,6 +269,7 @@ const App = () => {
   }
 
   const next = () => {
+    setStop(false);
     const newCuadro = grid.map((oneSquare) => {
       var cont = 0;
       cont += NO(oneSquare);
