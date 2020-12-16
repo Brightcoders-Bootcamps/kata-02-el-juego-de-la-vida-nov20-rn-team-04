@@ -81,13 +81,13 @@ El diseño propuesto tiene:
 [Pasos necesarios para ejecutar y probar este proyecto]
 1. Asegúrate de tener preparado tu entorno de trabajo (https://reactnative.dev/docs/environment-setup)
 2. Clona el repositorio desde GitHub
-3. Instalar la aplicación Juego Vida en tu dispositivo android
+3. Instala la aplicación Juego Vida en tu dispositivo android
 4. Abre la aplicación
 5. El juego comienza en el botón de Start
 6. Da click en Next para saber qué celulas pasan a la siguiente generación
 7. Juégalo en modo automático en el botón de Auto
 8. Detén el juego en el botón de Stop
-9. Presiona Reset para reestablecer el juego y volver a jugar}
+9. Presiona Reset para reestablecer el juego}
 (setup/README.md)
 
 ## Recursos
