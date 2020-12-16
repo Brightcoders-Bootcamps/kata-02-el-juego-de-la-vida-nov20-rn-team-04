@@ -1,0 +1,15 @@
+{
+    "deepscan.enable": true,
+
+    "editor.formatoOnSave": true,
+    "editor.tabSize": 2,
+    "files.eol": "\n",
+    "[Javascript]":{
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "prettuer.singleQuote": true,
+    "editor.codeActionsOnsave": {
+        "source.fixAll.eslint": true
+    }
+}
+
