@@ -42,9 +42,11 @@ const App = () => {
   //Array with usaeState with DATA
   const [grid, setGrid] = useState(DATA);
   const [auto, setAuto] = useState(null);
+  const [stop, setStop] = useState(false);
 
   //When press start button it change some cell to dead
   const start = () => {
+    setStop(false);
     const newSquare = grid.map((oneSquare) => {
       return {
         ...oneSquare,
@@ -190,65 +192,69 @@ const App = () => {
   }
   */
   useEffect(() => {
-    setTimeout(() => {
-      if (auto) {
-        const newSquare = grid.map((oneSquare) => {
-          var cont = 0;
-          cont += NO(oneSquare);
-          cont += N(oneSquare);
-          cont += NE(oneSquare);
-          cont += O(oneSquare);
-          cont += E(oneSquare);
-          cont += SO(oneSquare);
-          cont += S(oneSquare);
-          cont += SE(oneSquare);
+    if (!stop) {
+      setTimeout(() => {
+        if (auto) {
+          const newSquare = grid.map((oneSquare) => {
+            var cont = 0;
+            cont += NO(oneSquare);
+            cont += N(oneSquare);
+            cont += NE(oneSquare);
+            cont += O(oneSquare);
+            cont += E(oneSquare);
+            cont += SO(oneSquare);
+            cont += S(oneSquare);
+            cont += SE(oneSquare);
 
-          //When a dead cell is with live cells it revives
-          if (oneSquare.obj.live === 0 && cont === 3) {
-            return {
-              ...oneSquare,
-              obj: {
-                live: 1,
-                x: oneSquare.obj.x,
-                y: oneSquare.obj.y,
-              },
-            };
-          }
-          //When a live cell is with less of 2 live cell it dies
-          //When a live cell is with more of 3 live cell it dies
-          if (oneSquare.obj.live === 1 && (cont === 3 || cont === 2)) {
-            return {
-              ...oneSquare,
-              obj: {
-                live: oneSquare.obj.live,
-                x: oneSquare.obj.x,
-                y: oneSquare.obj.y,
-              },
-            };
-          } else {
-            return {
-              ...oneSquare,
-              obj: {
-                live: 0,
-                x: oneSquare.obj.x,
-                y: oneSquare.obj.y,
-              },
-            };
-          }
-        });
-        setGrid(newSquare);
-        setAuto(auto + 1);
-      }
-    }, 1000);
+            //When a dead cell is with live cells it revives
+            if (oneSquare.obj.live === 0 && cont === 3) {
+              return {
+                ...oneSquare,
+                obj: {
+                  live: 1,
+                  x: oneSquare.obj.x,
+                  y: oneSquare.obj.y,
+                },
+              };
+            }
+            //When a live cell is with less of 2 live cell it dies
+            //When a live cell is with more of 3 live cell it dies
+            if (oneSquare.obj.live === 1 && (cont === 3 || cont === 2)) {
+              return {
+                ...oneSquare,
+                obj: {
+                  live: oneSquare.obj.live,
+                  x: oneSquare.obj.x,
+                  y: oneSquare.obj.y,
+                },
+              };
+            } else {
+              return {
+                ...oneSquare,
+                obj: {
+                  live: 0,
+                  x: oneSquare.obj.x,
+                  y: oneSquare.obj.y,
+                },
+              };
+            }
+          });
+          setGrid(newSquare);
+          setAuto(auto + 1);
+        }
+      }, 1000);
+    } else {
+      setAuto(null);
+    }
   }, [auto]);
 
-  function stop() {
+  function stopS() {
     //stop(grid.map(setAuto))
-    clearInterval(global.intervalId);
+    setStop(true);
   }
 
   function reset() {
-    stop();
+    //stop();
     const newCuadro = grid.map((oneSquare) => {
       return {
         ...oneSquare,
@@ -346,7 +352,7 @@ const App = () => {
       </TouchableOpacity>
 
       <TouchableOpacity>
-        <Text style={styles.button} onPress={stop}>
+        <Text style={styles.button} onPress={stopS}>
           Stop
         </Text>
       </TouchableOpacity>
