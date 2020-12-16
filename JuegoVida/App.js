@@ -183,14 +183,7 @@ const App = () => {
     return 0;
   };
 
-  /*
-  function auto(){
-    stop();
-    global.intervalId = setInterval($e => {
-      next();
-    },2000);
-  }
-  */
+ 
   useEffect(() => {
     if (!stop) {
       setTimeout(() => {
