@@ -180,6 +180,34 @@ const App = () => {
     return 0;
   };
 
+  
+  function auto(){
+    stop();
+    global.intervalId = setInterval($e => {
+      next();
+    },2000);
+  }
+
+  function stop(){
+    clearInterval(global.intervalId);
+  }
+
+  function reset(){
+    stop();
+    const newCuadro = grid.map((oneSquare) => {
+      return {
+        ...oneSquare,
+        obj: {
+          live: 1,
+          x: oneSquare.obj.x,
+          y: oneSquare.obj.y,
+        },
+      };
+    });
+    setGrid(newCuadro);
+  }
+
+
   const next = () => {
     const newCuadro = grid.map((oneSquare) => {
       var cont = 0;
@@ -252,12 +280,17 @@ const App = () => {
       </TouchableOpacity>
 
       <TouchableOpacity>
-        <Text style={styles.button}>Auto</Text>
+        <Text style={styles.button} onPress={auto}>Auto</Text>
       </TouchableOpacity>
 
       <TouchableOpacity>
-        <Text style={styles.button}>Reset</Text>
+        <Text style={styles.button} onPress={reset}>Reset</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity>
+        <Text style={styles.button} onPress={stop}>Stop</Text>
+      </TouchableOpacity>
+
     </SafeAreaView>
   );
 };
@@ -267,7 +300,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   item: {
-    paddingVertical: 20,
+    paddingVertical: 14,
     paddingHorizontal: 1,
     marginVertical: 1,
     marginHorizontal: 1,
